@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+ul{
+    list-style: none;
+}
+li{
+    float: left;
+    margin: 1%;
+    width: 200px;
+}
+</style>
+
+    {% if closet_list %} <!-- 조건문 1 -->
+    <div class="col-xl">
+    <ul >
+        {% for Closet in closet_list %} <!-- elif 조건문 2 -->
+        <li>
+            <a href="{% url 'closet:detail' Closet.id %}">
+                <img src = "{{ closet.mainphoto.url }}" alt="" width="200px" class="mx-auto d-block img">
+                <h1 class="h2">{{ question.subject }}</h1>
+            </a>
+            <!-- views detail(request, closet_id) -->
+        </li>
+        {% endfor %}
+    </ul>
+    </div><a href="{% url 'closet:closet_create' %}" class="btn btn-primary btn-block ">CLOSET</a>
+    {% else %} <!-- 나머지 -->
+    <p>질문이 없습니다.</p>
+    {% endif %}
+
+    {% for item in list %}
+    <p>순서: {{ forloop.counter }} </p> <!-- 객체속성 1부터 표시 -->
+    <p>{{ item }}</p>
+    {% endfor %}
+{% endblock %}
