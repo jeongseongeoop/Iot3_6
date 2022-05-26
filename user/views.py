@@ -13,6 +13,7 @@ def index(request):
     """
     closet 목록 출력
     """
+    page = request.GET.get('page', '1') # 페이지
     # 데이터 작성날짜 역순 조회
     closet_list = Closet.objects.order_by('-create_date')
     context = {'closet_list': closet_list} 
