@@ -24,9 +24,7 @@ SECRET_KEY = 'django-insecure-1md$_s_w4+@o@rwe48mp4r7l^0x#$oayc6^4o5@9!o0#qs8-0i
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user'
+    'user',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +124,13 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# media directori
 import os
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# 로그인
+LOGIN_REDIRECT_URL = '/'
+# 로그아웃
+LOGOUT_REDIRECT_URL = '/'
