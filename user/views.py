@@ -29,7 +29,7 @@ def detail(request, closet_id):
 
 def closet_create(request):
     """
-    pybo 질문등록
+    closet 의류등록
     """
     if request.method == 'POST':
         form = QuestionForm(request.POST)

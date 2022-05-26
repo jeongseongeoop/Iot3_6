@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-ul{
-    list-style: none;
-}
-li{
-    float: left;
-    margin: 1%;
-    width: 200px;
-}
+    ul{
+        list-style: none;
+    }
+    li{
+        float: left;
+        margin: 1%;
+        width: 200px;
+    }
 </style>
-
     {% if closet_list %} <!-- 조건문 1 -->
     <div class="col-xl">
     <ul >
@@ -23,8 +22,9 @@ li{
             <!-- views detail(request, closet_id) -->
         </li>
         {% endfor %}
+        <li><a href="{% url 'closet:closet_create' %}" class="btn btn-primary btn-block ">CLOSET</a></li>
     </ul>
-    </div><a href="{% url 'closet:closet_create' %}" class="btn btn-primary btn-block ">CLOSET</a>
+    </div>
     {% else %} <!-- 나머지 -->
     <p>질문이 없습니다.</p>
     {% endif %}
